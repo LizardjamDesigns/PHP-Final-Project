@@ -1,0 +1,347 @@
+<!doctype html>
+
+<html >
+
+	
+	<head>
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+		<!-- Allows for multiple pages in one page -->
+		<script>
+			function show(shown, hidden) {
+			document.getElementById(shown).style.display='block';
+			document.getElementById(hidden).style.display='none';
+			return false;
+			}
+		</script>
+	
+	</head>
+	
+	<body>
+		<div id="Home">
+	
+			<!-- Page Header -->
+				<div class="col-12 header">
+				
+					<h1>Course Management System</h1>
+					
+					<!-- Create DB if it does not exist -->
+					<?php
+					include('../Model/databaseFunctions.php');
+					createDB();
+					?>
+					
+				</div>
+			
+			<!-- Nav and content -->
+			<div class="row">
+				
+				<!-- Mobile Nav -->
+				<div class="row mobile">
+					<nav>
+						<a class="noHover" href="#Home">Home</a> <br><br>
+						<a class="noHover" href="#Student" onclick="return show('Student', 'Home');">Add Student</a> <br><br>
+						<a class="noHover" href="#Instructor" onclick="return show('Instructor', 'Home');">Add Instructor</a> <br><br>
+						<a class="noHover" href="#Course" onclick="return show('Course', 'Home');">Add Course</a> <br><br>
+						<a class="noHover" href="#Class" onclick="return show('Class', 'Home');">Add Class</a>	<br><br>
+					</nav>
+				</div>
+				
+				<!-- Desktop Nav -->
+				<div class="col-3 menu desktop">
+					<ul>
+						<li><a class="noHover" href="#Home">Home</a></li>
+						<li><a class="noHover" href="#Student" onclick="return show('Student', 'Home');">Add Student</a></li>
+						<li><a class="noHover" href="#Instructor" onclick="return show('Instructor', 'Home');">Add Instructor</a></li>
+						<li><a class="noHover" href="#Course" onclick="return show('Course', 'Home');">Add Course</a></li>
+						<li><a class="noHover" href="#Class" onclick="return show('Class', 'Home');">Add Class</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-6 content">
+					<h3>Welcome to the Course Management System.</h3>
+					<h5>Please select a category and enter the appropriate data in the form.</h5>
+					<br>
+					<br>
+					<br>
+					<p>Thank you for using the Course Management System.</p>
+				</div>
+				
+				<div class="col-3 image">
+					<img src="https://www.mindflash.com/wp-content/uploads/2012/03/What-Is-an-LMS12.jpg" alt="File System" width="100px" height="250px" />
+				</div>
+				
+			</div>
+			
+			<!-- Three column Content -->
+			<div class="row">
+			
+				<div class="col-4 contentBox">
+					<p>About Us</p>
+				</div>
+			
+				<div class="col-4 contentBox">
+					<p>Other Projects</p>
+				</div>
+				
+				<div class="col-4 contentBox">
+					<p>Help and Customer Support</p>
+				</div>
+			</div>
+			
+			<!-- Footer -->
+			<div class="col-12 footer">
+				<p>Site created by Larry Thompson</p>
+			</div>
+		
+		</div>
+
+<!-- **************************Student Page*********************************** -->
+		
+		<div id="Student" style="display:none">
+		
+			<!-- Page Header -->
+				<div class="col-12 header">
+					<h1>Course Management System</h1>
+					<h4>Student Data Input</h4>
+				</div>
+				
+				<!-- Nav and Form -->
+			<div class="row">
+				
+				<!-- Mobile Nav -->
+				<div class="row mobile">
+					<nav>
+						<a class="noHover" href="#Home" onclick="return show('Home', 'Student');">Home</a> <br><br>
+						<a class="noHover" href="#Student">Add Student</a> <br><br>
+						<a class="noHover" href="#Instructor" onclick="return show('Instructor', 'Student');">Add Instructor</a> <br><br>
+						<a class="noHover" href="#Course" onclick="return show('Course', 'Student');">Add Course</a> <br><br>
+						<a class="noHover" href="#Class" onclick="return show('Class', 'Student');">Add Class</a>	<br><br>
+					</nav>
+				</div>
+				
+				<!-- Desktop Nav -->
+				<div class="col-3 menu desktop">
+					<ul>
+						<li><a class="noHover" href="#Home" onclick="return show('Home', 'Student');">Home</a></li>
+						<li><a class="noHover" href="#Student">Add Student</a></li>
+						<li><a class="noHover" href="#Instructor" onclick="return show('Instructor', 'Student');">Add Instructor</a></li>
+						<li><a class="noHover" href="#Course" onclick="return show('Course', 'Student');">Add Course</a></li>
+						<li><a class="noHover" href="#Class" onclick="return show('Class', 'Student');">Add Class</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-6 content">
+				
+					<form action="../Controller/student.php" method="post"><br>
+						Student ID: <input type="number" name="studentID"><br><br><br>
+						First Name: <input type="text" name="sFName"><br><br><br>
+						Last Name: <input type="text" name="sLName"><br><br><br>
+						<input type="submit" name="submit" value="Post to File">
+						<input type="submit" name="submitDatabase" value="Post to Database">
+					</form>
+					
+				</div>
+				
+				<div class="col-3 image">
+					<img src="http://listsurge.com/wp-content/uploads/2015/09/Education-important.jpg" alt="Student" width="100px" height="250px" />
+				</div>
+				
+				<!-- Footer -->
+				<div class="col-12 footer">
+					<p>Site created by Larry Thompson</p>
+				</div>	
+			</div>
+			
+		</div>
+		
+<!-- **************************Instructor Page*********************************** -->		
+		
+		<div id="Instructor" style="display:none">
+		
+			<!-- Page Header -->
+				<div class="col-12 header">
+					<h1>Course Management System</h1>
+					<h4>Instructor Data Input</h4>
+				</div>
+				
+				<!-- Nav and Form -->
+			<div class="row">
+				
+				<!-- Mobile Nav -->
+				<div class="row mobile">
+					<nav>
+						<a class="noHover" href="#Home" onclick="return show('Home', 'Instructor');">Home</a> <br><br>
+						<a class="noHover" href="#Student" onclick="return show('Student', 'Instructor');">Add Student</a> <br><br>
+						<a class="noHover" href="#Instructor">Add Instructor</a> <br><br>
+						<a class="noHover" href="#Course" onclick="return show('Course', 'Instructor');">Add Course</a> <br><br>
+						<a class="noHover" href="#Class" onclick="return show('Class', 'Instructor');">Add Class</a>	<br><br>
+					</nav>
+				</div>
+				
+				<!-- Desktop Nav -->
+				<div class="col-3 menu desktop">
+					<ul>
+						<li><a class="noHover" href="#Home" onclick="return show('Home', 'Instructor');">Home</a></li>
+						<li><a class="noHover" href="#Student" onclick="return show('Student', 'Instructor');">Add Student</a></li>
+						<li><a class="noHover" href="#Instructor">Add Instructor</a></li>
+						<li><a class="noHover" href="#Course" onclick="return show('Course', 'Instructor');">Add Course</a></li>
+						<li><a class="noHover" href="#Class" onclick="return show('Class', 'Instructor');">Add Class</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-6 content">
+				
+					<form action="../Controller/instructor.php" method="post"><br>
+						Instructor ID: <input type="number" name="instructorID"><br><br><br>
+						First Name: <input type="text" name="iFName"><br><br><br>
+						Last Name: <input type="text" name="iLName"><br><br><br>
+						<input type="submit" name="submit" value="Post to File">
+						<input type="submit" name="submitDatabase" value="Post to DataBase">
+					</form>
+					
+				</div>
+				
+				<div class="col-3 image">
+					<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQwo1MqnOgAg42gDkC4kqVNGakEu57YKU2Eygux5_73sHRhz6fp" alt="File System" width="100px" height="250px" />
+				</div>
+				
+				<!-- Footer -->
+				<div class="col-12 footer">
+					<p>Site created by Larry Thompson</p>
+				</div>
+			
+			</div>
+			
+		</div>
+			
+<!-- **************************Course Page*********************************** -->			
+		
+		<div id="Course" style="display:none">
+		
+			<!-- Page Header -->
+				<div class="col-12 header">
+					<h1>Course Management System</h1>
+					<h4>Course Data Input</h4>
+				</div>
+				
+				<!-- Nav and Form -->
+			<div class="row">
+				
+				<!-- Mobile Nav -->
+				<div class="row mobile">
+					<nav>
+						<a class="noHover" href="#Home" onclick="return show('Home', 'Course');">Home</a> <br><br>
+						<a class="noHover" href="#Student" onclick="return show('Student', 'Course');">Add Student</a> <br><br>
+						<a class="noHover" href="#Instructor" onclick="return show('Instructor', 'Course');">Add Instructor</a> <br><br>
+						<a class="noHover" href="#Course">Add Course</a> <br><br>
+						<a class="noHover" href="#Class" onclick="return show('Class', 'Course');">Add Class</a>	<br><br>
+					</nav>
+				</div>
+				
+				<!-- Desktop Nav -->
+				<div class="col-3 menu desktop">
+					<ul>
+						<li><a class="noHover" href="#Home" onclick="return show('Home', 'Course');">Home</a></li>
+						<li><a class="noHover" href="#Student" onclick="return show('Student', 'Course');">Add Student</a></li>
+						<li><a class="noHover" href="#Instructor" onclick="return show('Instructor', 'Course');">Add Instructor</a></li>
+						<li><a class="noHover" href="#Course">Add Course</a></li>
+						<li><a class="noHover" href="#Class" onclick="return show('Class', 'Course');">Add Class</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-6 content">
+				
+					<form action="../Controller/course.php" method="post"><br>
+						Course ID: <input type="number" name="courseID"><br><br><br>
+						Course Name: <input type="text" name="courseName"><br><br><br>
+						Semester ID: <input type="text" name="semesterID"><br><br><br>
+						Instructor ID: <input type="number" name="instructorID"><br><br><br>
+						Room: <input type="text" name="roomNum"><br><br><br>
+						Days: <input type="text" name="courseDays"><br><br><br>
+						Times: <input type="text" name="courseTimes"><br><br><br>
+						<input type="submit" name="submit" value="Post to File">
+						<input type="submit" name="submitDatabase" value="Post to DataBase">
+					</form>
+					
+				</div>
+				
+				<div class="col-3 image">
+					<img src="http://atlastestprep.com/home/wp-content/uploads/2016/01/college-classes.jpg" alt="File System" width="100px" height="250px" />
+				</div>
+				
+				<!-- Footer -->
+				<div class="col-12 footer">
+					<p>Site created by Larry Thompson</p>
+				</div>
+				
+			</div>
+			
+		</div>
+			
+<!-- **************************Class Page*********************************** -->			
+		
+		<div id="Class" style="display:none">
+		
+			<!-- Page Header -->
+				<div class="col-12 header">
+					<h1>Course Management System</h1>
+					<h4>Class Data Input</h4>
+				</div>
+				
+				<!-- Nav and Form -->
+			<div class="row">
+				
+				<!-- Mobile Nav -->
+				<div class="row mobile">
+					<nav>
+						<a class="noHover" href="#Home" onclick="return show('Home', 'Class');">Home</a> <br><br>
+						<a class="noHover" href="#Student" onclick="return show('Student', 'Class');">Add Student</a> <br><br>
+						<a class="noHover" href="#Instructor" onclick="return show('Instructor', 'Class');">Add Instructor</a> <br><br>
+						<a class="noHover" href="#Course" onclick="return show('Course', 'Class');">Add Course</a> <br><br>
+						<a class="noHover" href="#Class">Add Class</a>	<br><br>
+					</nav>
+				</div>
+				
+				<!-- Desktop Nav -->
+				<div class="col-3 menu desktop">
+					<ul>
+						<li><a class="noHover" href="#Home" onclick="return show('Home', 'Class');">Home</a></li>
+						<li><a class="noHover" href="#Student" onclick="return show('Student', 'Class');">Add Student</a></li>
+						<li><a class="noHover" href="#Instructor" onclick="return show('Instructor', 'Class');">Add Instructor</a></li>
+						<li><a class="noHover" href="#Course" onclick="return show('Course', 'Class');">Add Course</a></li>
+						<li><a class="noHover" href="#Class">Add Class</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-6 content">
+				
+					<form action="../Controller/class.php" method="post"><br>
+						Course ID: <input type="number" name="courseID"><br><br><br>
+						Semester ID: <input type="text" name="semesterID"><br><br><br>
+						Student ID: <input type="text" name="studentID"><br><br><br>
+						Grade: <input type="text" name="grade"><br><br><br>
+						<input type="submit" name="submit" value="Post to File">
+						<input type="submit" name="submitDatabase" value="Post to DataBase">
+					</form>
+					
+				</div>
+				
+				<div class="col-3 image">
+					<img src="data:image/jpeg;base64,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" alt="File System" width="100px" height="250px" />
+				</div>
+				
+				<!-- Footer -->
+				<div class="col-12 footer">
+					<p>Site created by Larry Thompson</p>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</body>
+	
+</html>
